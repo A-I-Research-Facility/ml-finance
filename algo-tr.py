@@ -185,7 +185,6 @@ def currentPattern():
     print(patForRec)
 
 def patternRecognition():
-
     pattFound = 0
     plotPattArr = []
     
@@ -254,20 +253,31 @@ def patternRecognition():
                       +similarity_29
                       +similarity_30) / 30.0
 
-        if howSimilar > 75:
+        if howSimilar > 70:
             pattdex = patternArr.index(pattern)
             pattFound = 1
 
             print('Predicted outcome : ', performanceArr[pattdex])
             
             xp = [i for i in range(1, 31)]
+            # xp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            #       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+            #       21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
             plotPattArr.append(pattern)
 
     if pattFound == 1:
         fig = plt.figure(figsize=(10, 6))
 
         for pattern in plotPattArr:
+            futurePoints = patternArr.index(pattern)
+
+            if performanceArr[futurePoints] > patForRec[29]:
+                pcolor = 'green'
+            else:
+                pcolor = 'red'
+
             plt.plot(xp, pattern)
+            plt.scatter(35, performanceArr[futurePoints], c=pcolor, alpha=0.4)
 
         plt.plot(xp, patForRec, 'cyan', linewidth = 3)
         plt.grid(True)
@@ -308,7 +318,6 @@ while limit < dataLength:
     performanceArr = []
     patForRec = []
 
-    # graphRawFX()
     patternStorage()
     currentPattern()
     patternRecognition()
