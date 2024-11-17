@@ -4,6 +4,14 @@ import matplotlib.ticker as mticker
 import matplotlib.dates as mdates
 import numpy as np
 
+
+def percentChange(startPoint, currentPoint):
+    return ((currentPoint - startPoint)/startPoint) * 100
+
+
+
+
+
 def graphRawFX():
     date, bid, ask = np.loadtxt('GBPUSD1d.txt', unpack=True, delimiter=',', converters={0: lambda x: mdates.datestr2num(x)})
 
@@ -27,4 +35,4 @@ def graphRawFX():
     plt.grid(True)
     plt.show()
 
-graphRawFX()
+# graphRawFX()
