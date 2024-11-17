@@ -9,6 +9,7 @@ import time
 filename = 'GBPUSD1d.txt'
 
 date, bid, ask = np.loadtxt(filename, unpack=True, delimiter=',', converters={0: lambda x: mdates.datestr2num(x)})
+avgLine = ((bid + ask) / 2)
 
 patternArr = []
 performanceArr = []
@@ -18,7 +19,6 @@ def percentChange(startPoint, currentPoint):
 
 def patternStorage():
     patStartTime = time.time()
-    avgLine = ((bid + ask) / 2)
     x = len(avgLine) - 30
 
     y = 11
@@ -67,6 +67,33 @@ def patternStorage():
     print (len(performanceArr))
     print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
 
+def patternRecognition():
+    patForRec = []
+
+    currPatt_1 = percentChange(avgLine[-11], avgLine[-10])
+    currPatt_2 = percentChange(avgLine[-11], avgLine[-9])
+    currPatt_3 = percentChange(avgLine[-11], avgLine[-8])
+    currPatt_4 = percentChange(avgLine[-11], avgLine[-7])
+    currPatt_5 = percentChange(avgLine[-11], avgLine[-6])
+    currPatt_6 = percentChange(avgLine[-11], avgLine[-5])
+    currPatt_7 = percentChange(avgLine[-11], avgLine[-4])
+    currPatt_8 = percentChange(avgLine[-11], avgLine[-3])
+    currPatt_9 = percentChange(avgLine[-11], avgLine[-2])
+    currPatt_10 = percentChange(avgLine[-11], avgLine[-1])
+
+    patForRec.append(currPatt_1)
+    patForRec.append(currPatt_2)
+    patForRec.append(currPatt_3)
+    patForRec.append(currPatt_4)
+    patForRec.append(currPatt_5)
+    patForRec.append(currPatt_6)
+    patForRec.append(currPatt_7)
+    patForRec.append(currPatt_8)
+    patForRec.append(currPatt_9)
+    patForRec.append(currPatt_10)
+
+    print(patForRec)
+
 def graphRawFX():
     fig = plt.figure(figsize = (10, 7))
     ax1 = plt.subplot2grid((40, 40), (0, 0), rowspan = 40, colspan = 40)
@@ -89,4 +116,5 @@ def graphRawFX():
     plt.show()
 
 # graphRawFX()
-patternStorage()
+# patternStorage()
+patternRecognition()
