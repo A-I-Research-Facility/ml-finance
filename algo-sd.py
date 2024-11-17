@@ -149,78 +149,78 @@ def currentPattern():
     currPatt_29 = percentChange(avgLine[-31], avgLine[-2])
     currPatt_30 = percentChange(avgLine[-31], avgLine[-1])
 
-    patForRec.append(currPatt_1)
-    patForRec.append(currPatt_2)
-    patForRec.append(currPatt_3)
-    patForRec.append(currPatt_4)
-    patForRec.append(currPatt_5)
-    patForRec.append(currPatt_6)
-    patForRec.append(currPatt_7)
-    patForRec.append(currPatt_8)
-    patForRec.append(currPatt_9)
-    patForRec.append(currPatt_10)
+    pattForRec.append(currPatt_1)
+    pattForRec.append(currPatt_2)
+    pattForRec.append(currPatt_3)
+    pattForRec.append(currPatt_4)
+    pattForRec.append(currPatt_5)
+    pattForRec.append(currPatt_6)
+    pattForRec.append(currPatt_7)
+    pattForRec.append(currPatt_8)
+    pattForRec.append(currPatt_9)
+    pattForRec.append(currPatt_10)
 
-    patForRec.append(currPatt_11)
-    patForRec.append(currPatt_12)
-    patForRec.append(currPatt_13)
-    patForRec.append(currPatt_14)
-    patForRec.append(currPatt_15)
-    patForRec.append(currPatt_16)
-    patForRec.append(currPatt_17)
-    patForRec.append(currPatt_18)
-    patForRec.append(currPatt_19)
-    patForRec.append(currPatt_20)
+    pattForRec.append(currPatt_11)
+    pattForRec.append(currPatt_12)
+    pattForRec.append(currPatt_13)
+    pattForRec.append(currPatt_14)
+    pattForRec.append(currPatt_15)
+    pattForRec.append(currPatt_16)
+    pattForRec.append(currPatt_17)
+    pattForRec.append(currPatt_18)
+    pattForRec.append(currPatt_19)
+    pattForRec.append(currPatt_20)
 
-    patForRec.append(currPatt_21)
-    patForRec.append(currPatt_22)
-    patForRec.append(currPatt_23)
-    patForRec.append(currPatt_24)
-    patForRec.append(currPatt_25)
-    patForRec.append(currPatt_26)
-    patForRec.append(currPatt_27)
-    patForRec.append(currPatt_28)
-    patForRec.append(currPatt_29)
-    patForRec.append(currPatt_30)
+    pattForRec.append(currPatt_21)
+    pattForRec.append(currPatt_22)
+    pattForRec.append(currPatt_23)
+    pattForRec.append(currPatt_24)
+    pattForRec.append(currPatt_25)
+    pattForRec.append(currPatt_26)
+    pattForRec.append(currPatt_27)
+    pattForRec.append(currPatt_28)
+    pattForRec.append(currPatt_29)
+    pattForRec.append(currPatt_30)
 
-    print(patForRec)
+    print(pattForRec)
 
 def patternRecognition():
     pattFound = 0
     plotPattArr = []
     
     for pattern in patternArr:
-        similarity_1 = 100.0 - abs(percentChange(pattern[0], patForRec[0]))
-        similarity_2 = 100.0 - abs(percentChange(pattern[1], patForRec[1]))
-        similarity_3 = 100.0 - abs(percentChange(pattern[2], patForRec[2]))
-        similarity_4 = 100.0 - abs(percentChange(pattern[3], patForRec[3]))
-        similarity_5 = 100.0 - abs(percentChange(pattern[4], patForRec[4]))
-        similarity_6 = 100.0 - abs(percentChange(pattern[5], patForRec[5]))
-        similarity_7 = 100.0 - abs(percentChange(pattern[6], patForRec[6]))
-        similarity_8 = 100.0 - abs(percentChange(pattern[7], patForRec[7]))
-        similarity_9 = 100.0 - abs(percentChange(pattern[8], patForRec[8]))
-        similarity_10 = 100.0 - abs(percentChange(pattern[9], patForRec[9]))
+        similarity_1 = 100.0 - abs(percentChange(pattern[0], pattForRec[0]))
+        similarity_2 = 100.0 - abs(percentChange(pattern[1], pattForRec[1]))
+        similarity_3 = 100.0 - abs(percentChange(pattern[2], pattForRec[2]))
+        similarity_4 = 100.0 - abs(percentChange(pattern[3], pattForRec[3]))
+        similarity_5 = 100.0 - abs(percentChange(pattern[4], pattForRec[4]))
+        similarity_6 = 100.0 - abs(percentChange(pattern[5], pattForRec[5]))
+        similarity_7 = 100.0 - abs(percentChange(pattern[6], pattForRec[6]))
+        similarity_8 = 100.0 - abs(percentChange(pattern[7], pattForRec[7]))
+        similarity_9 = 100.0 - abs(percentChange(pattern[8], pattForRec[8]))
+        similarity_10 = 100.0 - abs(percentChange(pattern[9], pattForRec[9]))
 
-        similarity_11 = 100.0 - abs(percentChange(pattern[10], patForRec[10]))
-        similarity_12 = 100.0 - abs(percentChange(pattern[11], patForRec[11]))
-        similarity_13 = 100.0 - abs(percentChange(pattern[12], patForRec[12]))
-        similarity_14 = 100.0 - abs(percentChange(pattern[13], patForRec[13]))
-        similarity_15 = 100.0 - abs(percentChange(pattern[14], patForRec[14]))
-        similarity_16 = 100.0 - abs(percentChange(pattern[15], patForRec[15]))
-        similarity_17 = 100.0 - abs(percentChange(pattern[16], patForRec[16]))
-        similarity_18 = 100.0 - abs(percentChange(pattern[17], patForRec[17]))
-        similarity_19 = 100.0 - abs(percentChange(pattern[18], patForRec[18]))
-        similarity_20 = 100.0 - abs(percentChange(pattern[19], patForRec[19]))
+        similarity_11 = 100.0 - abs(percentChange(pattern[10], pattForRec[10]))
+        similarity_12 = 100.0 - abs(percentChange(pattern[11], pattForRec[11]))
+        similarity_13 = 100.0 - abs(percentChange(pattern[12], pattForRec[12]))
+        similarity_14 = 100.0 - abs(percentChange(pattern[13], pattForRec[13]))
+        similarity_15 = 100.0 - abs(percentChange(pattern[14], pattForRec[14]))
+        similarity_16 = 100.0 - abs(percentChange(pattern[15], pattForRec[15]))
+        similarity_17 = 100.0 - abs(percentChange(pattern[16], pattForRec[16]))
+        similarity_18 = 100.0 - abs(percentChange(pattern[17], pattForRec[17]))
+        similarity_19 = 100.0 - abs(percentChange(pattern[18], pattForRec[18]))
+        similarity_20 = 100.0 - abs(percentChange(pattern[19], pattForRec[19]))
 
-        similarity_21 = 100.0 - abs(percentChange(pattern[20], patForRec[20]))
-        similarity_22 = 100.0 - abs(percentChange(pattern[21], patForRec[21]))
-        similarity_23 = 100.0 - abs(percentChange(pattern[22], patForRec[22]))
-        similarity_24 = 100.0 - abs(percentChange(pattern[23], patForRec[23]))
-        similarity_25 = 100.0 - abs(percentChange(pattern[24], patForRec[24]))
-        similarity_26 = 100.0 - abs(percentChange(pattern[25], patForRec[25]))
-        similarity_27 = 100.0 - abs(percentChange(pattern[26], patForRec[26]))
-        similarity_28 = 100.0 - abs(percentChange(pattern[27], patForRec[27]))
-        similarity_29 = 100.0 - abs(percentChange(pattern[28], patForRec[28]))
-        similarity_30 = 100.0 - abs(percentChange(pattern[29], patForRec[29]))
+        similarity_21 = 100.0 - abs(percentChange(pattern[20], pattForRec[20]))
+        similarity_22 = 100.0 - abs(percentChange(pattern[21], pattForRec[21]))
+        similarity_23 = 100.0 - abs(percentChange(pattern[22], pattForRec[22]))
+        similarity_24 = 100.0 - abs(percentChange(pattern[23], pattForRec[23]))
+        similarity_25 = 100.0 - abs(percentChange(pattern[24], pattForRec[24]))
+        similarity_26 = 100.0 - abs(percentChange(pattern[25], pattForRec[25]))
+        similarity_27 = 100.0 - abs(percentChange(pattern[26], pattForRec[26]))
+        similarity_28 = 100.0 - abs(percentChange(pattern[27], pattForRec[27]))
+        similarity_29 = 100.0 - abs(percentChange(pattern[28], pattForRec[28]))
+        similarity_30 = 100.0 - abs(percentChange(pattern[29], pattForRec[29]))
 
         howSimilar = (similarity_1
                       +similarity_2
@@ -271,7 +271,7 @@ def patternRecognition():
         for pattern in plotPattArr:
             futurePoints = patternArr.index(pattern)
 
-            if performanceArr[futurePoints] > patForRec[29]:
+            if performanceArr[futurePoints] > pattForRec[29]:
                 pcolor = 'green'
             else:
                 pcolor = 'red'
@@ -279,7 +279,13 @@ def patternRecognition():
             plt.plot(xp, pattern)
             plt.scatter(35, performanceArr[futurePoints], c=pcolor, alpha=0.4)
 
-        plt.plot(xp, patForRec, 'cyan', linewidth = 3)
+        realOutcomeRange = allData[limit + 20 : limit + 30]
+        realAvgOutcome = reduce(lambda x, y : x + y, realOutcomeRange) / len(realOutcomeRange)
+        realMovement = percentChange(allData[limit], realAvgOutcome)
+
+        plt.scatter(40, realMovement, c='cyan', s=25)
+
+        plt.plot(xp, pattForRec, 'cyan', linewidth = 3)
         plt.grid(True)
         plt.title('Pattern Recognition')
         plt.show()
@@ -309,14 +315,14 @@ dataLength = int(bid.shape[0])
 print("Data length is : ", dataLength)
 
 limit = 37000
+allData = ((bid + ask) / 2)
 
 while limit < dataLength:
-    avgLine = ((bid + ask) / 2)
-    avgLine = avgLine[:limit]
+    avgLine = allData[:limit]
 
     patternArr = []
     performanceArr = []
-    patForRec = []
+    pattForRec = []
 
     patternStorage()
     currentPattern()
