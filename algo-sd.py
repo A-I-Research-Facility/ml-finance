@@ -29,8 +29,7 @@ def patternStorage():
     while y < x:
         pattern = []
         counter = 29
-
-        while counter > 0:
+        while counter >= 0:
             temp = percentChange(avgLine[y - 30], avgLine[y - counter])
             pattern.append(temp)
             counter -= 1
@@ -52,98 +51,40 @@ def patternStorage():
         y += 1
     
     patEndTime = time.time()
-    print (len(patternArr))
-    print (len(performanceArr))
+    # print (len(patternArr))
+    # print (len(performanceArr))
     print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
 
 def currentPattern():
     counter = -30
-    while counter < -1:
+    while counter < 0:
         temp = percentChange(avgLine[-31], avgLine[counter])
         counter += 1
         pattForRec.append(temp)
 
-    print(pattForRec)
+    # print(pattForRec)
 
 def patternRecognition():
     pattFound = 0
     plotPattArr = []
     
     for pattern in patternArr:
-        similarity_1 = 100.0 - abs(percentChange(pattern[0], pattForRec[0]))
-        similarity_2 = 100.0 - abs(percentChange(pattern[1], pattForRec[1]))
-        similarity_3 = 100.0 - abs(percentChange(pattern[2], pattForRec[2]))
-        similarity_4 = 100.0 - abs(percentChange(pattern[3], pattForRec[3]))
-        similarity_5 = 100.0 - abs(percentChange(pattern[4], pattForRec[4]))
-        similarity_6 = 100.0 - abs(percentChange(pattern[5], pattForRec[5]))
-        similarity_7 = 100.0 - abs(percentChange(pattern[6], pattForRec[6]))
-        similarity_8 = 100.0 - abs(percentChange(pattern[7], pattForRec[7]))
-        similarity_9 = 100.0 - abs(percentChange(pattern[8], pattForRec[8]))
-        similarity_10 = 100.0 - abs(percentChange(pattern[9], pattForRec[9]))
+        counter = 0
+        similarSum = 0
+        while counter < 30:
+            temp = 100.0 - abs(percentChange(pattern[counter], pattForRec[counter]))
+            counter += 1
+            similarSum += temp
 
-        similarity_11 = 100.0 - abs(percentChange(pattern[10], pattForRec[10]))
-        similarity_12 = 100.0 - abs(percentChange(pattern[11], pattForRec[11]))
-        similarity_13 = 100.0 - abs(percentChange(pattern[12], pattForRec[12]))
-        similarity_14 = 100.0 - abs(percentChange(pattern[13], pattForRec[13]))
-        similarity_15 = 100.0 - abs(percentChange(pattern[14], pattForRec[14]))
-        similarity_16 = 100.0 - abs(percentChange(pattern[15], pattForRec[15]))
-        similarity_17 = 100.0 - abs(percentChange(pattern[16], pattForRec[16]))
-        similarity_18 = 100.0 - abs(percentChange(pattern[17], pattForRec[17]))
-        similarity_19 = 100.0 - abs(percentChange(pattern[18], pattForRec[18]))
-        similarity_20 = 100.0 - abs(percentChange(pattern[19], pattForRec[19]))
-
-        similarity_21 = 100.0 - abs(percentChange(pattern[20], pattForRec[20]))
-        similarity_22 = 100.0 - abs(percentChange(pattern[21], pattForRec[21]))
-        similarity_23 = 100.0 - abs(percentChange(pattern[22], pattForRec[22]))
-        similarity_24 = 100.0 - abs(percentChange(pattern[23], pattForRec[23]))
-        similarity_25 = 100.0 - abs(percentChange(pattern[24], pattForRec[24]))
-        similarity_26 = 100.0 - abs(percentChange(pattern[25], pattForRec[25]))
-        similarity_27 = 100.0 - abs(percentChange(pattern[26], pattForRec[26]))
-        similarity_28 = 100.0 - abs(percentChange(pattern[27], pattForRec[27]))
-        similarity_29 = 100.0 - abs(percentChange(pattern[28], pattForRec[28]))
-        similarity_30 = 100.0 - abs(percentChange(pattern[29], pattForRec[29]))
-
-        howSimilar = (similarity_1
-                      +similarity_2
-                      +similarity_3
-                      +similarity_4
-                      +similarity_5
-                      +similarity_6
-                      +similarity_7
-                      +similarity_8
-                      +similarity_9
-                      +similarity_10
-                      +similarity_11
-                      +similarity_12
-                      +similarity_13
-                      +similarity_14
-                      +similarity_15
-                      +similarity_16
-                      +similarity_17
-                      +similarity_18
-                      +similarity_19
-                      +similarity_20
-                      +similarity_21
-                      +similarity_22
-                      +similarity_23
-                      +similarity_24
-                      +similarity_25
-                      +similarity_26
-                      +similarity_27
-                      +similarity_28
-                      +similarity_29
-                      +similarity_30) / 30.0
+        howSimilar = similarSum / 30.0
 
         if howSimilar > 70:
             pattdex = patternArr.index(pattern)
             pattFound = 1
 
-            print('Predicted outcome : ', performanceArr[pattdex])
+            # print('Predicted outcome : ', performanceArr[pattdex])
             
             xp = [i for i in range(1, 31)]
-            # xp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            #       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-            #       21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
             plotPattArr.append(pattern)
 
     if pattFound == 1:
