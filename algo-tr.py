@@ -185,6 +185,10 @@ def currentPattern():
     print(patForRec)
 
 def patternRecognition():
+
+    pattFound = 0
+    plotPattArr = []
+    
     for pattern in patternArr:
         similarity_1 = 100.0 - abs(percentChange(pattern[0], patForRec[0]))
         similarity_2 = 100.0 - abs(percentChange(pattern[1], patForRec[1]))
@@ -250,24 +254,25 @@ def patternRecognition():
                       +similarity_29
                       +similarity_30) / 30.0
 
-        if howSimilar > 40:
+        if howSimilar > 75:
             pattdex = patternArr.index(pattern)
+            pattFound = 1
 
-            print('##########################')
-            print('##########################')
-            print(patForRec)
-            print('--------------------------')
-            print(pattern)
             print('Predicted outcome : ', performanceArr[pattdex])
-            xp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-                  11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-                  21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-            fig = plt.figure()
-            plt.plot(xp, patForRec)
+            
+            xp = [i for i in range(1, 31)]
+            plotPattArr.append(pattern)
+
+    if pattFound == 1:
+        fig = plt.figure(figsize=(10, 6))
+
+        for pattern in plotPattArr:
             plt.plot(xp, pattern)
-            plt.show()
-            print('##########################')
-            print('##########################')
+
+        plt.plot(xp, patForRec, 'cyan', linewidth = 3)
+        plt.grid(True)
+        plt.title('Pattern Recognition')
+        plt.show()
 
 def graphRawFX():
     fig = plt.figure(figsize = (10, 7))
@@ -293,7 +298,7 @@ def graphRawFX():
 dataLength = int(bid.shape[0])
 print("Data length is : ", dataLength)
 
-limit = 100
+limit = 37000
 
 while limit < dataLength:
     avgLine = ((bid + ask) / 2)
