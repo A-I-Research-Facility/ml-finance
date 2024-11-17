@@ -110,7 +110,7 @@ def patternRecognition():
 
         howSimilar = (similarity_1+similarity_2+similarity_3+similarity_4+similarity_5+similarity_6+similarity_7+similarity_8+similarity_9+similarity_10) / 10.0
 
-        if howSimilar > 80:
+        if howSimilar > 70:
             pattdex = patternArr.index(pattern)
 
             print('##########################')
@@ -119,6 +119,11 @@ def patternRecognition():
             print('--------------------------')
             print(pattern)
             print('Predicted outcome : ', performanceArr[pattdex])
+            xp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            fig = plt.figure()
+            plt.plot(xp, patForRec)
+            plt.plot(xp, pattern)
+            plt.show()
             print('##########################')
             print('##########################')
 
