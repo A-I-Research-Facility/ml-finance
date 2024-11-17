@@ -28,38 +28,12 @@ def patternStorage():
     y = 31
     while y < x:
         pattern = []
-        p1 = percentChange(avgLine[y - 30], avgLine[y - 29])
-        p2 = percentChange(avgLine[y - 30], avgLine[y - 28])
-        p3 = percentChange(avgLine[y - 30], avgLine[y - 27])
-        p4 = percentChange(avgLine[y - 30], avgLine[y - 26])
-        p5 = percentChange(avgLine[y - 30], avgLine[y - 25])
-        p6 = percentChange(avgLine[y - 30], avgLine[y - 24])
-        p7 = percentChange(avgLine[y - 30], avgLine[y - 23])
-        p8 = percentChange(avgLine[y - 30], avgLine[y - 22])
-        p9 = percentChange(avgLine[y - 30], avgLine[y - 21])
-        p10 = percentChange(avgLine[y - 30], avgLine[y - 20])
+        counter = 29
 
-        p11 = percentChange(avgLine[y - 30], avgLine[y - 19])
-        p12 = percentChange(avgLine[y - 30], avgLine[y - 18])
-        p13 = percentChange(avgLine[y - 30], avgLine[y - 17])
-        p14 = percentChange(avgLine[y - 30], avgLine[y - 16])
-        p15 = percentChange(avgLine[y - 30], avgLine[y - 15])
-        p16 = percentChange(avgLine[y - 30], avgLine[y - 14])
-        p17 = percentChange(avgLine[y - 30], avgLine[y - 13])
-        p18 = percentChange(avgLine[y - 30], avgLine[y - 12])
-        p19 = percentChange(avgLine[y - 30], avgLine[y - 11])
-        p20 = percentChange(avgLine[y - 30], avgLine[y - 10])
-
-        p21 = percentChange(avgLine[y - 30], avgLine[y - 9])
-        p22 = percentChange(avgLine[y - 30], avgLine[y - 8])
-        p23 = percentChange(avgLine[y - 30], avgLine[y - 7])
-        p24 = percentChange(avgLine[y - 30], avgLine[y - 6])
-        p25 = percentChange(avgLine[y - 30], avgLine[y - 5])
-        p26 = percentChange(avgLine[y - 30], avgLine[y - 4])
-        p27 = percentChange(avgLine[y - 30], avgLine[y - 3])
-        p28 = percentChange(avgLine[y - 30], avgLine[y - 2])
-        p29 = percentChange(avgLine[y - 30], avgLine[y - 1])
-        p30 = percentChange(avgLine[y - 30], avgLine[y])
+        while counter > 0:
+            temp = percentChange(avgLine[y - 30], avgLine[y - counter])
+            pattern.append(temp)
+            counter -= 1
 
         outcomeRange = avgLine[y + 20 : y + 30]
         currentPoint = avgLine[y]
@@ -71,39 +45,6 @@ def patternStorage():
             avgOutcome = 0
 
         futureOutcome = percentChange(currentPoint, avgOutcome)
-        
-        pattern.append(p1)
-        pattern.append(p2)
-        pattern.append(p3)
-        pattern.append(p4)
-        pattern.append(p5)
-        pattern.append(p6)
-        pattern.append(p7)
-        pattern.append(p8)
-        pattern.append(p9)
-        pattern.append(p10)
-
-        pattern.append(p11)
-        pattern.append(p12)
-        pattern.append(p13)
-        pattern.append(p14)
-        pattern.append(p15)
-        pattern.append(p16)
-        pattern.append(p17)
-        pattern.append(p18)
-        pattern.append(p19)
-        pattern.append(p20)
-
-        pattern.append(p21)
-        pattern.append(p22)
-        pattern.append(p23)
-        pattern.append(p24)
-        pattern.append(p25)
-        pattern.append(p26)
-        pattern.append(p27)
-        pattern.append(p28)
-        pattern.append(p29)
-        pattern.append(p30)
         
         patternArr.append(pattern)
         performanceArr.append(futureOutcome)
