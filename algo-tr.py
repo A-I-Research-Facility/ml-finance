@@ -11,11 +11,6 @@ filename = 'GBPUSD1d.txt'
 scriptStartTime = time.time()
 
 date, bid, ask = np.loadtxt(filename, unpack=True, delimiter=',', converters={0: lambda x: mdates.datestr2num(x)})
-avgLine = ((bid + ask) / 2)
-
-patternArr = []
-performanceArr = []
-patForRec = []
 
 def percentChange(startPoint, currentPoint):
     try:
@@ -295,9 +290,27 @@ def graphRawFX():
     plt.grid(True)
     plt.show()
 
-# graphRawFX()
-patternStorage()
-currentPattern()
-patternRecognition()
+dataLength = int(bid.shape[0])
+print("Data length is : ", dataLength)
+
+limit = 100
+
+while limit < dataLength:
+    avgLine = ((bid + ask) / 2)
+    avgLine = avgLine[:limit]
+
+    patternArr = []
+    performanceArr = []
+    patForRec = []
+
+    # graphRawFX()
+    patternStorage()
+    currentPattern()
+    patternRecognition()
+
+    moveOn = input('press ENTER to continue')
+
+    limit += 1
+
 totalTime = time.time() - scriptStartTime
-print("Processing time : ", totalTime)
+print("Total processing time : ", totalTime)
