@@ -18,25 +18,53 @@ performanceArr = []
 patForRec = []
 
 def percentChange(startPoint, currentPoint):
-    return ((float(currentPoint) - startPoint)/abs(startPoint)) * 100.0
+    try:
+        x = ((float(currentPoint) - startPoint)/abs(startPoint)) * 100.0
+        if x == 0.0:
+            return 0.000000001
+        else:
+            return x
+    except:
+        return 0.000000001
 
 def patternStorage():
     patStartTime = time.time()
-    x = len(avgLine) - 30
-
-    y = 11
+    x = len(avgLine) - 60
+    y = 31
     while y < x:
         pattern = []
-        p1 = percentChange(avgLine[y - 10], avgLine[y - 9])
-        p2 = percentChange(avgLine[y - 10], avgLine[y - 8])
-        p3 = percentChange(avgLine[y - 10], avgLine[y - 7])
-        p4 = percentChange(avgLine[y - 10], avgLine[y - 6])
-        p5 = percentChange(avgLine[y - 10], avgLine[y - 5])
-        p6 = percentChange(avgLine[y - 10], avgLine[y - 4])
-        p7 = percentChange(avgLine[y - 10], avgLine[y - 3])
-        p8 = percentChange(avgLine[y - 10], avgLine[y - 2])
-        p9 = percentChange(avgLine[y - 10], avgLine[y - 1])
-        p10 = percentChange(avgLine[y - 10], avgLine[y])
+        p1 = percentChange(avgLine[y - 30], avgLine[y - 29])
+        p2 = percentChange(avgLine[y - 30], avgLine[y - 28])
+        p3 = percentChange(avgLine[y - 30], avgLine[y - 27])
+        p4 = percentChange(avgLine[y - 30], avgLine[y - 26])
+        p5 = percentChange(avgLine[y - 30], avgLine[y - 25])
+        p6 = percentChange(avgLine[y - 30], avgLine[y - 24])
+        p7 = percentChange(avgLine[y - 30], avgLine[y - 23])
+        p8 = percentChange(avgLine[y - 30], avgLine[y - 22])
+        p9 = percentChange(avgLine[y - 30], avgLine[y - 21])
+        p10 = percentChange(avgLine[y - 30], avgLine[y - 20])
+
+        p11 = percentChange(avgLine[y - 30], avgLine[y - 19])
+        p12 = percentChange(avgLine[y - 30], avgLine[y - 18])
+        p13 = percentChange(avgLine[y - 30], avgLine[y - 17])
+        p14 = percentChange(avgLine[y - 30], avgLine[y - 16])
+        p15 = percentChange(avgLine[y - 30], avgLine[y - 15])
+        p16 = percentChange(avgLine[y - 30], avgLine[y - 14])
+        p17 = percentChange(avgLine[y - 30], avgLine[y - 13])
+        p18 = percentChange(avgLine[y - 30], avgLine[y - 12])
+        p19 = percentChange(avgLine[y - 30], avgLine[y - 11])
+        p20 = percentChange(avgLine[y - 30], avgLine[y - 10])
+
+        p21 = percentChange(avgLine[y - 30], avgLine[y - 9])
+        p22 = percentChange(avgLine[y - 30], avgLine[y - 8])
+        p23 = percentChange(avgLine[y - 30], avgLine[y - 7])
+        p24 = percentChange(avgLine[y - 30], avgLine[y - 6])
+        p25 = percentChange(avgLine[y - 30], avgLine[y - 5])
+        p26 = percentChange(avgLine[y - 30], avgLine[y - 4])
+        p27 = percentChange(avgLine[y - 30], avgLine[y - 3])
+        p28 = percentChange(avgLine[y - 30], avgLine[y - 2])
+        p29 = percentChange(avgLine[y - 30], avgLine[y - 1])
+        p30 = percentChange(avgLine[y - 30], avgLine[y])
 
         outcomeRange = avgLine[y + 20 : y + 30]
         currentPoint = avgLine[y]
@@ -59,6 +87,28 @@ def patternStorage():
         pattern.append(p8)
         pattern.append(p9)
         pattern.append(p10)
+
+        pattern.append(p11)
+        pattern.append(p12)
+        pattern.append(p13)
+        pattern.append(p14)
+        pattern.append(p15)
+        pattern.append(p16)
+        pattern.append(p17)
+        pattern.append(p18)
+        pattern.append(p19)
+        pattern.append(p20)
+
+        pattern.append(p21)
+        pattern.append(p22)
+        pattern.append(p23)
+        pattern.append(p24)
+        pattern.append(p25)
+        pattern.append(p26)
+        pattern.append(p27)
+        pattern.append(p28)
+        pattern.append(p29)
+        pattern.append(p30)
         
         patternArr.append(pattern)
         performanceArr.append(futureOutcome)
@@ -71,16 +121,38 @@ def patternStorage():
     print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
 
 def currentPattern():
-    currPatt_1 = percentChange(avgLine[-11], avgLine[-10])
-    currPatt_2 = percentChange(avgLine[-11], avgLine[-9])
-    currPatt_3 = percentChange(avgLine[-11], avgLine[-8])
-    currPatt_4 = percentChange(avgLine[-11], avgLine[-7])
-    currPatt_5 = percentChange(avgLine[-11], avgLine[-6])
-    currPatt_6 = percentChange(avgLine[-11], avgLine[-5])
-    currPatt_7 = percentChange(avgLine[-11], avgLine[-4])
-    currPatt_8 = percentChange(avgLine[-11], avgLine[-3])
-    currPatt_9 = percentChange(avgLine[-11], avgLine[-2])
-    currPatt_10 = percentChange(avgLine[-11], avgLine[-1])
+    currPatt_1 = percentChange(avgLine[-31], avgLine[-30])
+    currPatt_3 = percentChange(avgLine[-31], avgLine[-29])
+    currPatt_4 = percentChange(avgLine[-31], avgLine[-28])
+    currPatt_2 = percentChange(avgLine[-31], avgLine[-27])
+    currPatt_5 = percentChange(avgLine[-31], avgLine[-26])
+    currPatt_6 = percentChange(avgLine[-31], avgLine[-25])
+    currPatt_7 = percentChange(avgLine[-31], avgLine[-24])
+    currPatt_8 = percentChange(avgLine[-31], avgLine[-23])
+    currPatt_9 = percentChange(avgLine[-31], avgLine[-22])
+    currPatt_10 = percentChange(avgLine[-31], avgLine[-21])
+
+    currPatt_11 = percentChange(avgLine[-31], avgLine[-20])
+    currPatt_12 = percentChange(avgLine[-31], avgLine[-19])
+    currPatt_13 = percentChange(avgLine[-31], avgLine[-18])
+    currPatt_14 = percentChange(avgLine[-31], avgLine[-17])
+    currPatt_15 = percentChange(avgLine[-31], avgLine[-16])
+    currPatt_16 = percentChange(avgLine[-31], avgLine[-15])
+    currPatt_17 = percentChange(avgLine[-31], avgLine[-14])
+    currPatt_18 = percentChange(avgLine[-31], avgLine[-13])
+    currPatt_19 = percentChange(avgLine[-31], avgLine[-12])
+    currPatt_20 = percentChange(avgLine[-31], avgLine[-11])
+
+    currPatt_21 = percentChange(avgLine[-31], avgLine[-10])
+    currPatt_22 = percentChange(avgLine[-31], avgLine[-9])
+    currPatt_23 = percentChange(avgLine[-31], avgLine[-8])
+    currPatt_24 = percentChange(avgLine[-31], avgLine[-7])
+    currPatt_25 = percentChange(avgLine[-31], avgLine[-6])
+    currPatt_26 = percentChange(avgLine[-31], avgLine[-5])
+    currPatt_27 = percentChange(avgLine[-31], avgLine[-4])
+    currPatt_28 = percentChange(avgLine[-31], avgLine[-3])
+    currPatt_29 = percentChange(avgLine[-31], avgLine[-2])
+    currPatt_30 = percentChange(avgLine[-31], avgLine[-1])
 
     patForRec.append(currPatt_1)
     patForRec.append(currPatt_2)
@@ -92,6 +164,28 @@ def currentPattern():
     patForRec.append(currPatt_8)
     patForRec.append(currPatt_9)
     patForRec.append(currPatt_10)
+
+    patForRec.append(currPatt_11)
+    patForRec.append(currPatt_12)
+    patForRec.append(currPatt_13)
+    patForRec.append(currPatt_14)
+    patForRec.append(currPatt_15)
+    patForRec.append(currPatt_16)
+    patForRec.append(currPatt_17)
+    patForRec.append(currPatt_18)
+    patForRec.append(currPatt_19)
+    patForRec.append(currPatt_20)
+
+    patForRec.append(currPatt_21)
+    patForRec.append(currPatt_22)
+    patForRec.append(currPatt_23)
+    patForRec.append(currPatt_24)
+    patForRec.append(currPatt_25)
+    patForRec.append(currPatt_26)
+    patForRec.append(currPatt_27)
+    patForRec.append(currPatt_28)
+    patForRec.append(currPatt_29)
+    patForRec.append(currPatt_30)
 
     print(patForRec)
 
@@ -108,9 +202,60 @@ def patternRecognition():
         similarity_9 = 100.0 - abs(percentChange(pattern[8], patForRec[8]))
         similarity_10 = 100.0 - abs(percentChange(pattern[9], patForRec[9]))
 
-        howSimilar = (similarity_1+similarity_2+similarity_3+similarity_4+similarity_5+similarity_6+similarity_7+similarity_8+similarity_9+similarity_10) / 10.0
+        similarity_11 = 100.0 - abs(percentChange(pattern[10], patForRec[10]))
+        similarity_12 = 100.0 - abs(percentChange(pattern[11], patForRec[11]))
+        similarity_13 = 100.0 - abs(percentChange(pattern[12], patForRec[12]))
+        similarity_14 = 100.0 - abs(percentChange(pattern[13], patForRec[13]))
+        similarity_15 = 100.0 - abs(percentChange(pattern[14], patForRec[14]))
+        similarity_16 = 100.0 - abs(percentChange(pattern[15], patForRec[15]))
+        similarity_17 = 100.0 - abs(percentChange(pattern[16], patForRec[16]))
+        similarity_18 = 100.0 - abs(percentChange(pattern[17], patForRec[17]))
+        similarity_19 = 100.0 - abs(percentChange(pattern[18], patForRec[18]))
+        similarity_20 = 100.0 - abs(percentChange(pattern[19], patForRec[19]))
 
-        if howSimilar > 70:
+        similarity_21 = 100.0 - abs(percentChange(pattern[20], patForRec[20]))
+        similarity_22 = 100.0 - abs(percentChange(pattern[21], patForRec[21]))
+        similarity_23 = 100.0 - abs(percentChange(pattern[22], patForRec[22]))
+        similarity_24 = 100.0 - abs(percentChange(pattern[23], patForRec[23]))
+        similarity_25 = 100.0 - abs(percentChange(pattern[24], patForRec[24]))
+        similarity_26 = 100.0 - abs(percentChange(pattern[25], patForRec[25]))
+        similarity_27 = 100.0 - abs(percentChange(pattern[26], patForRec[26]))
+        similarity_28 = 100.0 - abs(percentChange(pattern[27], patForRec[27]))
+        similarity_29 = 100.0 - abs(percentChange(pattern[28], patForRec[28]))
+        similarity_30 = 100.0 - abs(percentChange(pattern[29], patForRec[29]))
+
+        howSimilar = (similarity_1
+                      +similarity_2
+                      +similarity_3
+                      +similarity_4
+                      +similarity_5
+                      +similarity_6
+                      +similarity_7
+                      +similarity_8
+                      +similarity_9
+                      +similarity_10
+                      +similarity_11
+                      +similarity_12
+                      +similarity_13
+                      +similarity_14
+                      +similarity_15
+                      +similarity_16
+                      +similarity_17
+                      +similarity_18
+                      +similarity_19
+                      +similarity_20
+                      +similarity_21
+                      +similarity_22
+                      +similarity_23
+                      +similarity_24
+                      +similarity_25
+                      +similarity_26
+                      +similarity_27
+                      +similarity_28
+                      +similarity_29
+                      +similarity_30) / 30.0
+
+        if howSimilar > 40:
             pattdex = patternArr.index(pattern)
 
             print('##########################')
@@ -119,7 +264,9 @@ def patternRecognition():
             print('--------------------------')
             print(pattern)
             print('Predicted outcome : ', performanceArr[pattdex])
-            xp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            xp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                  11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                  21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
             fig = plt.figure()
             plt.plot(xp, patForRec)
             plt.plot(xp, pattern)
