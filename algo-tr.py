@@ -8,11 +8,14 @@ import time
 # Name of file
 filename = 'GBPUSD1d.txt'
 
+scriptStartTime = time.time()
+
 date, bid, ask = np.loadtxt(filename, unpack=True, delimiter=',', converters={0: lambda x: mdates.datestr2num(x)})
 avgLine = ((bid + ask) / 2)
 
 patternArr = []
 performanceArr = []
+patForRec = []
 
 def percentChange(startPoint, currentPoint):
     return ((float(currentPoint) - startPoint)/abs(startPoint)) * 100.0
@@ -67,9 +70,7 @@ def patternStorage():
     print (len(performanceArr))
     print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
 
-def patternRecognition():
-    patForRec = []
-
+def currentPattern():
     currPatt_1 = percentChange(avgLine[-11], avgLine[-10])
     currPatt_2 = percentChange(avgLine[-11], avgLine[-9])
     currPatt_3 = percentChange(avgLine[-11], avgLine[-8])
@@ -94,6 +95,33 @@ def patternRecognition():
 
     print(patForRec)
 
+def patternRecognition():
+    for pattern in patternArr:
+        similarity_1 = 100.0 - abs(percentChange(pattern[0], patForRec[0]))
+        similarity_2 = 100.0 - abs(percentChange(pattern[1], patForRec[1]))
+        similarity_3 = 100.0 - abs(percentChange(pattern[2], patForRec[2]))
+        similarity_4 = 100.0 - abs(percentChange(pattern[3], patForRec[3]))
+        similarity_5 = 100.0 - abs(percentChange(pattern[4], patForRec[4]))
+        similarity_6 = 100.0 - abs(percentChange(pattern[5], patForRec[5]))
+        similarity_7 = 100.0 - abs(percentChange(pattern[6], patForRec[6]))
+        similarity_8 = 100.0 - abs(percentChange(pattern[7], patForRec[7]))
+        similarity_9 = 100.0 - abs(percentChange(pattern[8], patForRec[8]))
+        similarity_10 = 100.0 - abs(percentChange(pattern[9], patForRec[9]))
+
+        howSimilar = (similarity_1+similarity_2+similarity_3+similarity_4+similarity_5+similarity_6+similarity_7+similarity_8+similarity_9+similarity_10) / 10.0
+
+        if howSimilar > 80:
+            pattdex = patternArr.index(pattern)
+
+            print('##########################')
+            print('##########################')
+            print(patForRec)
+            print('--------------------------')
+            print(pattern)
+            print('Predicted outcome : ', performanceArr[pattdex])
+            print('##########################')
+            print('##########################')
+
 def graphRawFX():
     fig = plt.figure(figsize = (10, 7))
     ax1 = plt.subplot2grid((40, 40), (0, 0), rowspan = 40, colspan = 40)
@@ -116,5 +144,8 @@ def graphRawFX():
     plt.show()
 
 # graphRawFX()
-# patternStorage()
+patternStorage()
+currentPattern()
 patternRecognition()
+totalTime = time.time() - scriptStartTime
+print("Processing time : ", totalTime)
