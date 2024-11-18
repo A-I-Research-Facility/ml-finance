@@ -93,33 +93,58 @@ def patternRecognition():
             xp = [i for i in range(1, 31)]
             plotPattArr.append(pattern)
 
+    predictionArr = []
+
     if pattFound == 1:
-        fig = plt.figure(figsize=(10, 6))
+        # fig = plt.figure(figsize=(10, 6))
 
         for pattern in plotPattArr:
             futurePoints = patternArr.index(pattern)
 
             if performanceArr[futurePoints] > pattForRec[29]:
                 pcolor = 'green'
+                predictionArr.append(1.0)
             else:
                 pcolor = 'red'
+                predictionArr.append(-1.0)
 
-            plt.plot(xp, pattern)
+            # plt.plot(xp, pattern)
             predictedOutcomesArr.append(performanceArr[futurePoints])
-            plt.scatter(35, performanceArr[futurePoints], c=pcolor, alpha=0.4)
+            # plt.scatter(35, performanceArr[futurePoints], c=pcolor, alpha=0.4)
 
         realOutcomeRange = allData[limit + 20 : limit + 30]
         realAvgOutcome = reduce(lambda x, y : x + y, realOutcomeRange) / len(realOutcomeRange)
         realMovement = percentChange(allData[limit], realAvgOutcome)
         predictedAvgOutcome = reduce(lambda x, y : x + y, predictedOutcomesArr) / len(predictedOutcomesArr)
         
-        plt.scatter(40, realMovement, c='cyan', s=25)
-        plt.scatter(40, predictedAvgOutcome, c='blue', s=25)
+        # plt.scatter(40, realMovement, c='cyan', s=25)
+        # plt.scatter(40, predictedAvgOutcome, c='blue', s=25)
 
-        plt.plot(xp, pattForRec, 'cyan', linewidth = 3)
-        plt.grid(True)
-        plt.title('Pattern Recognition')
-        plt.show()
+        # plt.plot(xp, pattForRec, 'cyan', linewidth = 3)
+        # plt.grid(True)
+        # plt.title('Pattern Recognition')
+        # plt.show()
+
+        print(predictionArr)
+        predictionAvg =  reduce(lambda x, y : x + y, predictionArr) / len(predictionArr)
+        print(predictionAvg)
+        if predictionAvg < 0:
+            print("Drop predicted")
+            print(pattForRec[29])
+            print(realMovement)
+            if realMovement < pattForRec[29]:
+                accuracyArr.append(100)
+            else:
+                accuracyArr.append(0)
+        
+        if predictionAvg > 0:
+            print("Rise predicted")
+            print(pattForRec[29])
+            print(realMovement)
+            if realMovement > pattForRec[29]:
+                accuracyArr.append(100)
+            else:
+                accuracyArr.append(0)
 
 def graphRawFX():
     fig = plt.figure(figsize = (10, 7))
@@ -148,6 +173,9 @@ dataLength = int(bid.shape[0])
 limit = 37000
 allData = ((bid + ask) / 2)
 
+accuracyArr = []
+samples = 0
+
 while limit < dataLength:
     avgLine = allData[:limit]
 
@@ -160,8 +188,10 @@ while limit < dataLength:
     patternRecognition()
 
     # moveOn = input('press ENTER to continue')
-
+    samples += 1
     limit += 1
+    accuracyAvg = reduce(lambda x, y : x + y, accuracyArr) / len(accuracyArr)
+    print("Backtested accuracy is ", str(accuracyAvg)+"%s after", samples, "samples")
 
 totalTime = time.time() - scriptStartTime
 print("Total processing time : ", totalTime)
