@@ -55,7 +55,7 @@ def patternStorage():
     val = '%.2f'%(endTime)
     global globalPattCounter
     globalPattCounter += 1
-    print("Pattern ", globalPattCounter, ", time : ", val, 's')
+    print("Pattern ", globalPattCounter, ", storage time : ", val, 's')
     # print (len(patternArr))
     # print (len(performanceArr))
     # print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
@@ -72,6 +72,7 @@ def currentPattern():
 def patternRecognition():
     pattFound = 0
     plotPattArr = []
+    predictedOutcomesArr = []
     
     for pattern in patternArr:
         counter = 0
@@ -104,13 +105,16 @@ def patternRecognition():
                 pcolor = 'red'
 
             plt.plot(xp, pattern)
+            predictedOutcomesArr.append(performanceArr[futurePoints])
             plt.scatter(35, performanceArr[futurePoints], c=pcolor, alpha=0.4)
 
         realOutcomeRange = allData[limit + 20 : limit + 30]
         realAvgOutcome = reduce(lambda x, y : x + y, realOutcomeRange) / len(realOutcomeRange)
         realMovement = percentChange(allData[limit], realAvgOutcome)
-
+        predictedAvgOutcome = reduce(lambda x, y : x + y, predictedOutcomesArr) / len(predictedOutcomesArr)
+        
         plt.scatter(40, realMovement, c='cyan', s=25)
+        plt.scatter(40, predictedAvgOutcome, c='blue', s=25)
 
         plt.plot(xp, pattForRec, 'cyan', linewidth = 3)
         plt.grid(True)
