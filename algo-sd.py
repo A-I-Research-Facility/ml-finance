@@ -9,6 +9,7 @@ import time
 filename = 'GBPUSD1d.txt'
 
 scriptStartTime = time.time()
+globalPattCounter = 0
 
 date, bid, ask = np.loadtxt(filename, unpack=True, delimiter=',', converters={0: lambda x: mdates.datestr2num(x)})
 
@@ -23,7 +24,7 @@ def percentChange(startPoint, currentPoint):
         return 0.000000001
 
 def patternStorage():
-    patStartTime = time.time()
+    startTime = time.time()
     x = len(avgLine) - 60
     y = 31
     while y < x:
@@ -50,10 +51,14 @@ def patternStorage():
 
         y += 1
     
-    patEndTime = time.time()
+    endTime = time.time() - startTime
+    val = '%.2f'%(endTime)
+    global globalPattCounter
+    globalPattCounter += 1
+    print("Pattern ", globalPattCounter, ", time : ", val, 's')
     # print (len(patternArr))
     # print (len(performanceArr))
-    print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
+    # print('Pattern storage took : ', patEndTime - patStartTime, ' seconds')
 
 def currentPattern():
     counter = -30
@@ -134,7 +139,7 @@ def graphRawFX():
     plt.show()
 
 dataLength = int(bid.shape[0])
-print("Data length is : ", dataLength)
+# print("Data length is : ", dataLength)
 
 limit = 37000
 allData = ((bid + ask) / 2)
@@ -150,7 +155,7 @@ while limit < dataLength:
     currentPattern()
     patternRecognition()
 
-    moveOn = input('press ENTER to continue')
+    # moveOn = input('press ENTER to continue')
 
     limit += 1
 
