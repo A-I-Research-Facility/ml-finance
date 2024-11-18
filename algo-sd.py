@@ -85,12 +85,12 @@ def patternRecognition():
         howSimilar = similarSum / 30.0
 
         if howSimilar > 70:
-            pattdex = patternArr.index(pattern)
+            # pattdex = patternArr.index(pattern)
             pattFound = 1
 
             # print('Predicted outcome : ', performanceArr[pattdex])
             
-            xp = [i for i in range(1, 31)]
+            # xp = [i for i in range(1, 31)]
             plotPattArr.append(pattern)
 
     predictionArr = []
@@ -102,10 +102,10 @@ def patternRecognition():
             futurePoints = patternArr.index(pattern)
 
             if performanceArr[futurePoints] > pattForRec[29]:
-                pcolor = 'green'
+                # pcolor = 'green'
                 predictionArr.append(1.0)
             else:
-                pcolor = 'red'
+                # pcolor = 'red'
                 predictionArr.append(-1.0)
 
             # plt.plot(xp, pattern)
@@ -115,7 +115,7 @@ def patternRecognition():
         realOutcomeRange = allData[limit + 20 : limit + 30]
         realAvgOutcome = reduce(lambda x, y : x + y, realOutcomeRange) / len(realOutcomeRange)
         realMovement = percentChange(allData[limit], realAvgOutcome)
-        predictedAvgOutcome = reduce(lambda x, y : x + y, predictedOutcomesArr) / len(predictedOutcomesArr)
+        # predictedAvgOutcome = reduce(lambda x, y : x + y, predictedOutcomesArr) / len(predictedOutcomesArr)
         
         # plt.scatter(40, realMovement, c='cyan', s=25)
         # plt.scatter(40, predictedAvgOutcome, c='blue', s=25)
@@ -147,7 +147,7 @@ def patternRecognition():
                 accuracyArr.append(0)
 
 def graphRawFX():
-    fig = plt.figure(figsize = (10, 7))
+    # fig = plt.figure(figsize = (10, 7))
     ax1 = plt.subplot2grid((40, 40), (0, 0), rowspan = 40, colspan = 40)
 
     ax1.plot(date, bid)
